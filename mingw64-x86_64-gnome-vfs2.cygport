@@ -1,0 +1,28 @@
+CROSS_HOST="x86_64-w64-mingw32"
+ORIG_PN="gnome-vfs"
+inherit cross gnome2
+
+NAME="mingw64-x86_64-gnome-vfs2"
+VERSION=2.24.4
+RELEASE=2
+CATEGORY="Devel"
+SUMMARY="GNOME Virtual File System for Win64 toolchain"
+DESCRIPTION="This is the GNOME Virtual File System. GNOME VFS is currently
+used as one of the foundations of the Nautilus file manager."
+REQUIRES="mingw64-x86_64-gnome-mime-data"
+
+PATCH_URI="
+	mirror://portage/gnome-base/${ORIG_PN}/files/${ORIG_PN}-2.12.0-afs.patch
+	mirror://portage/gnome-base/${ORIG_PN}/files/${ORIG_PN}-2.15.2-headers-define.patch
+	mirror://portage/gnome-base/${ORIG_PN}/files/${ORIG_PN}-2.16.0-no-dbus-crash.patch
+	mirror://portage/gnome-base/${ORIG_PN}/files/${ORIG_PN}-2.20.0-automagic-deps.patch
+	mirror://portage/gnome-base/${ORIG_PN}/files/${ORIG_PN}-2.20.1-automagic-deps.patch
+	http://git.gnome.org/browse/gnome-vfs/plain/xdgmime.win32.diff
+	2.24-modules-typos.patch
+	2.24-glib-deprecated.patch
+	2.24-mingw64.patch
+"
+
+# ipv6: missing IN6_ARE_ADDR_EQUAL
+CYGCONF_ARGS="--disable-ipv6 --disable-static"
+MAKEOPTS+=" man_MANS= "

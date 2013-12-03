@@ -1,0 +1,22 @@
+--- origsrc/gnome-vfs-2.24.0/modules/Makefile.am	2008-09-14 06:24:45.000000000 -0500
++++ src/gnome-vfs-2.24.0/modules/Makefile.am	2008-12-08 11:19:53.940500000 -0600
+@@ -64,7 +64,7 @@
+ PLATFROM_SPECIFIC_LTLIBS = libcomputer.la libdns-sd.la libnetwork.la libnntp.la libsftp.la libhttp.la libftp.la
+ endif
+ 
+-module_flags = -export_dynamic -avoid-version -module -no-undefined
++module_flags = -export-dynamic -avoid-version -module -no-undefined
+ modulesdir = $(libdir)/gnome-vfs-2.0/modules
+ 
+ modules_LTLIBRARIES =				\
+--- origsrc/gnome-vfs-2.24.0/modules/http-proxy.h	2008-09-14 06:24:45.000000000 -0500
++++ src/gnome-vfs-2.24.0/modules/http-proxy.h	2008-12-08 11:18:23.299875000 -0600
+@@ -23,7 +23,7 @@
+ */
+ 
+ #ifndef HTTP_PROXY_H
+-#define HTTP_RROXY_H
++#define HTTP_PROXY_H
+ 
+ 
+ typedef struct {
